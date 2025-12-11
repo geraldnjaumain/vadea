@@ -1,0 +1,52 @@
+/* View Switcher Styles */
+.view-switcher {
+    display: inline-flex;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.view-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-button:hover {
+    background-color: #f8fafc;
+    color: var(--color-ink-blue);
+}
+
+.view-button.active {
+    background-color: var(--color-ink-blue);
+    color: white;
+}
+
+.view-button.active:hover {
+    background-color: #1e3a8a;
+}
+
+.view-button svg {
+    flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+    .view-button span {
+        display: none;
+    }
+
+    .view-button {
+        padding: 8px 12px;
+    }
+}

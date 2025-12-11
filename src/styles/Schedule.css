@@ -1,0 +1,212 @@
+/* Schedule Layout */
+.schedule-layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--color-paper-white);
+    position: relative;
+    /* For mobile drawer */
+}
+
+.schedule-main {
+    flex: 3;
+    background-color: white;
+    padding: 24px;
+    overflow-y: auto;
+    border-right: 1px solid #e2e8f0;
+}
+
+/* Sidebar (Desktop Default) */
+.schedule-sidebar {
+    flex: 1;
+    min-width: 300px;
+    /* Prevent squishing */
+    background-color: #F8FAFC;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #e2e8f0;
+}
+
+/* FullCalendar Customization */
+.fc {
+    font-family: var(--font-body);
+    color: #334155;
+    height: 100%;
+}
+
+.fc-toolbar-title {
+    font-family: var(--font-heading) !important;
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
+    color: var(--color-ink-blue);
+}
+
+.fc-button-primary {
+    background-color: white !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #64748B !important;
+    font-weight: 600 !important;
+    text-transform: capitalize !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    padding: 8px 16px !important;
+    font-family: var(--font-body);
+}
+
+.fc-button-primary:hover,
+.fc-button-primary:active {
+    background-color: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+    color: var(--color-ink-blue) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.fc-button-active {
+    background-color: var(--color-ink-blue) !important;
+    border-color: var(--color-ink-blue) !important;
+    color: white !important;
+}
+
+.fc-button-group {
+    display: flex !important;
+    gap: 12px !important;
+    /* Explicit gap */
+}
+
+.fc-button-group>.fc-button {
+    margin-left: 0 !important;
+    border-radius: 8px !important;
+    /* Ensure all buttons are rounded */
+    flex: none;
+}
+
+/* Event Types */
+
+/* Class: Solid Ink Blue */
+.event-class {
+    background-color: var(--color-ink-blue) !important;
+    color: white !important;
+    border-left: 4px solid #1e293b !important;
+}
+
+.event-class:hover {
+    background-color: #0f172a !important;
+}
+
+/* Study Session: Light Blue, Soft */
+.event-study-session,
+.event-study {
+    background-color: #EFF6FF !important;
+    /* blue-50 */
+    color: #1E40AF !important;
+    /* blue-800 */
+    border: 1px solid #DBEAFE !important;
+    /* blue-200 */
+    border-left: 4px solid #3B82F6 !important;
+    /* blue-500 */
+}
+
+.event-study-session:hover {
+    background-color: #DBEAFE !important;
+}
+
+/* Exam: Rose Red, Critical */
+.event-exam {
+    background-color: #E11D48 !important;
+    /* rose-600 */
+    color: white !important;
+    border: 2px solid #9F1239 !important;
+    /* rose-800 */
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Deadline: Thin Banner */
+.event-deadline {
+    background-color: #FFF1F2 !important;
+    /* rose-50 */
+    color: #BE123C !important;
+    border: 1px dashed #FDA4AF !important;
+}
+
+/* Task Sidebar Items */
+.draggable-source {
+    background: white;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    cursor: grab;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    font-size: 0.875rem;
+    color: var(--color-ink-blue);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.draggable-source:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.05);
+    border-color: #94a3b8;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .schedule-layout {
+        flex-direction: column;
+    }
+
+    .schedule-main {
+        padding: 16px;
+        border-right: none;
+    }
+
+    /* Mobile Drawer for Sidebar */
+    .schedule-sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 70vh;
+        z-index: 100;
+        background: white;
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+        transform: translateY(110%);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex !important;
+        /* Force flex so it works when toggled */
+    }
+
+    .schedule-sidebar.open {
+        transform: translateY(0);
+    }
+
+    /* Overlay when drawer open */
+    .schedule-sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 90;
+        display: none;
+    }
+
+    .schedule-sidebar-overlay.open {
+        display: block;
+    }
+
+    .fc-toolbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

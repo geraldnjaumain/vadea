@@ -1,0 +1,465 @@
+/* HomeV4.css - Dedicated Stylesheet for Vadea Homepage V4.0 */
+
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap');
+
+:root {
+    --v4-color-bg: #FAFAFA;
+    --v4-color-text: #0F172A;
+    --v4-color-accent: #D4FF00;
+    /* Electric Lime */
+    --v4-font-head: 'Clash Display', sans-serif;
+    --v4-font-body: 'Satoshi', sans-serif;
+}
+
+/* Global Resets for HomeV4 Scope */
+.home-v4-root {
+    font-family: var(--v4-font-body);
+    color: var(--v4-color-text);
+    background-color: var(--v4-color-bg);
+    line-height: 1.5;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.home-v4-root * {
+    box-sizing: border-box;
+}
+
+/* Typography Overrides */
+.home-v4-root h1,
+.home-v4-root h2,
+.home-v4-root h3 {
+    font-family: var(--v4-font-head);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+/* Navbar Styling */
+.v4-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background: rgba(250, 250, 250, 0.8);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.v4-logo {
+    font-family: var(--v4-font-head);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--v4-color-text);
+}
+
+.v4-btn-primary {
+    background-color: var(--v4-color-accent);
+    color: var(--v4-color-text);
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(212, 255, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.v4-btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+/* Hero Section Styling */
+.v4-hero-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-top: 60px;
+    /* Offset for navbar */
+}
+
+.v4-hero-title {
+    font-size: 12vw;
+    /* Massive text */
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: var(--v4-color-text);
+}
+
+.v4-hero-subtitle {
+    font-size: 1.25rem;
+    color: #475569;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+}
+
+/* SVG / Image Resets */
+.home-v4-root svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Utility Animations */
+@keyframes v4-float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.v4-animate-float {
+    animation: v4-float 3s ease-in-out infinite;
+}
+
+/* --- Social Proof Section --- */
+.v4-social-proof {
+    padding: 80px 5%;
+    background-color: var(--v4-color-bg);
+    text-align: center;
+}
+
+.v4-social-text {
+    font-size: 1.5rem;
+    color: #94a3b8;
+    margin-bottom: 40px;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.v4-marquee-container {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.v4-logo-track {
+    display: flex;
+    gap: 80px;
+    animation: v4-scroll 20s linear infinite;
+    padding-left: 80px;
+    /* Offset for loop */
+}
+
+/* --- Section Typography --- */
+.v4-section-heading {
+    font-size: 3.5rem;
+    font-family: var(--v4-font-head);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--v4-color-text);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.v4-section-sub {
+    font-size: 1.25rem;
+    color: #64748b;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    font-weight: 400;
+}
+
+/* --- Transformation (The Scan) Section --- */
+.v4-transformation-section {
+    height: 150vh;
+    /* Scrollytelling length */
+    background-color: var(--v4-color-bg);
+    position: relative;
+    /* Ensure no overflow from flying elements */
+    overflow: hidden;
+}
+
+/* Layer 1: Chaos (Bottom) */
+.v4-chaos-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    background-color: var(--v4-color-bg);
+    isolation: isolate;
+    /* Force stacking context */
+}
+
+.v4-chaos-file {
+    position: absolute;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 180px;
+    padding: 20px;
+    transition: transform 0.1s;
+}
+
+/* Layer 2: Order (Top - Revealed via slide) */
+.v4-order-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    background-color: #0F172A;
+    transform: translateY(100%);
+    /* Initially off-screen below */
+    opacity: 0;
+}
+
+/* The Scanner Line */
+.v4-scanner-line {
+    position: absolute;
+    top: 0;
+    /* Will animate top 0% -> 100% */
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--v4-color-accent);
+    box-shadow: 0 0 40px 10px rgba(212, 255, 0, 0.4);
+    z-index: 200;
+    /* Boosted z-index */
+    transform: translateY(-50%);
+}
+
+.v4-grid-container {
+    max-width: 1200px;
+    width: 90%;
+}
+
+
+/* --- Testimonials Section (Dark Mode) --- */
+.v4-testimonials-section {
+    padding: 120px 5%;
+    background-color: #0F172A;
+    /* Obsidian */
+    color: white;
+}
+
+.v4-testimonials-heading {
+    font-size: 4rem;
+    font-family: var(--v4-font-head);
+    text-align: center;
+    margin-bottom: 60px;
+    color: white;
+}
+
+.v4-highlight {
+    color: var(--v4-color-accent);
+}
+
+.v4-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.v4-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px;
+    transition: transform 0.3s ease;
+}
+
+.v4-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--v4-color-accent);
+}
+
+.v4-card-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: #e2e8f0;
+}
+
+/* --- Deep Focus Section --- */
+.v4-deep-focus-section {
+    min-height: 100vh;
+    background-color: #0F172A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 100px 5%;
+}
+
+.v4-typing-container {
+    background: rgba(255, 255, 255, 0.08);
+    /* Glass */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 32px;
+    padding: 60px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.v4-typing-text {
+    font-family: 'Geist Mono', monospace;
+    /* Fallback to monospace */
+    font-size: 1.75rem;
+    color: var(--v4-color-accent);
+    line-height: 1.6;
+}
+
+/* --- Timeline Section --- */
+.v4-timeline-section {
+    padding: 150px 5%;
+    background-color: var(--v4-color-bg);
+}
+
+.v4-timeline-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.v4-timeline-card {
+    width: 42%;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.v4-timeline-time {
+    font-weight: 700;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.v4-timeline-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--v4-color-text);
+}
+
+/* --- FAQ Section --- */
+.v4-faq-section {
+    padding: 120px 5%;
+    background-color: var(--v4-color-bg);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.v4-faq-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    background: white;
+    overflow: hidden;
+}
+
+.v4-faq-question {
+    width: 100%;
+    padding: 30px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--v4-color-text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.v4-faq-answer {
+    padding: 0 30px 30px 30px;
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* --- Portal Section --- */
+.v4-portal-section {
+    height: 100vh;
+    background-color: var(--v4-color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.v4-portal-heading {
+    font-size: 6rem;
+    line-height: 0.9;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 40px;
+}
+
+/* --- Footer --- */
+.v4-footer {
+    background-color: #0F172A;
+    padding: 80px 5%;
+    color: white;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.v4-footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@keyframes v4-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

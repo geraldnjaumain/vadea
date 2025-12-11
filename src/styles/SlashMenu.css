@@ -1,0 +1,79 @@
+/* Slash Menu Styles */
+.slash-menu {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 4px;
+    min-width: 280px;
+    z-index: 100;
+    animation: slideIn 0.15s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slash-menu-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.15s;
+}
+
+.slash-menu-item:hover,
+.slash-menu-item.selected {
+    background-color: #f1f5f9;
+}
+
+.slash-menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #f8fafc;
+    border-radius: 6px;
+    color: var(--color-ink-blue);
+    flex-shrink: 0;
+}
+
+.slash-menu-item.selected .slash-menu-icon {
+    background: var(--color-electric-lime);
+}
+
+.slash-menu-content {
+    flex: 1;
+}
+
+.slash-menu-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-ink-blue);
+    margin-bottom: 2px;
+}
+
+.slash-menu-description {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.slash-command-decoration {
+    color: var(--color-electric-lime);
+    font-weight: 600;
+}

@@ -1,0 +1,149 @@
+/* Context Selector Styles */
+.context-selector {
+    position: relative;
+}
+
+.context-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-ink-blue);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.context-trigger:hover {
+    border-color: var(--color-ink-blue);
+    background-color: #f8fafc;
+}
+
+.context-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    max-height: 500px;
+    overflow-y: auto;
+    z-index: 100;
+    animation: slideIn 0.2s ease;
+}
+
+.context-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
+
+.context-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-ink-blue);
+    margin: 0;
+}
+
+.context-header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #64748b;
+    padding: 4px;
+    display: flex;
+    transition: color 0.2s;
+}
+
+.context-header button:hover {
+    color: var(--color-ink-blue);
+}
+
+.context-section {
+    padding: 12px;
+}
+
+.context-section h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin: 0 0 8px 0;
+}
+
+.context-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    margin-bottom: 4px;
+}
+
+.context-item:hover {
+    background-color: #f1f5f9;
+}
+
+.context-item.selected {
+    background-color: rgba(212, 255, 0, 0.1);
+}
+
+.context-item svg:first-child {
+    color: #64748b;
+    flex-shrink: 0;
+}
+
+.context-item.selected svg:first-child {
+    color: var(--color-ink-blue);
+}
+
+.context-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.context-item-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-ink-blue);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.context-item-subtitle {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.context-item svg:last-child {
+    color: var(--color-electric-lime);
+    flex-shrink: 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

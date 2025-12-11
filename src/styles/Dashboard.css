@@ -1,0 +1,136 @@
+/* Dashboard Styles */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--color-paper-white);
+}
+
+.sidebar {
+    width: 260px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: var(--color-paper-white);
+    border-right: 1px solid #e2e8f0;
+    /* slate-200 */
+    padding: 32px 24px;
+    display: none;
+    flex-direction: column;
+    z-index: 50;
+}
+
+.sidebar-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-ink-blue);
+    margin-bottom: 48px;
+    display: block;
+    text-decoration: none;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #64748B;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 4px;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    color: var(--color-ink-blue);
+    background-color: #F1F5F9;
+}
+
+.nav-item.active {
+    background-color: #F1F5F9;
+    color: var(--color-ink-blue);
+    font-weight: 700;
+}
+
+.main-content {
+    flex: 1;
+    padding: 32px;
+    margin-left: 0;
+    /* Default mobile */
+}
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.bento-card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+    border: 1px solid #f1f5f9;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-dark {
+    background-color: var(--color-ink-blue);
+    color: white;
+}
+
+/* Desktop Overrides */
+@media (min-width: 768px) {
+    .sidebar {
+        display: flex;
+    }
+
+    .main-content {
+        margin-left: 260px;
+    }
+
+    .bento-grid {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .col-span-12 {
+        grid-column: span 12;
+    }
+
+    .col-span-8 {
+        grid-column: span 8;
+    }
+
+    .col-span-6 {
+        grid-column: span 6;
+    }
+
+    .col-span-4 {
+        grid-column: span 4;
+    }
+}
+
+/* Bottom Nav (Mobile Only) */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background-color: white;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 50;
+}
+
+@media (min-width: 768px) {
+    .bottom-nav {
+        display: none;
+    }
+}

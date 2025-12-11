@@ -1,0 +1,99 @@
+/* Link Vault Styles */
+.vault-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.vault-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-electric-lime);
+}
+
+.icon-box {
+    width: 64px;
+    height: 64px;
+    background-color: #F3F4F6;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.vault-card:hover .icon-box {
+    background-color: var(--color-electric-lime);
+}
+
+.arrow-icon {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    color: var(--color-ink-blue);
+}
+
+.vault-card:hover .arrow-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Responsive Sections */
+.section-hero,
+.section-features {
+    padding: 40px 0;
+}
+
+.section-vault,
+.section-cta {
+    padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+
+    .section-hero,
+    .section-features {
+        padding: 80px 0;
+    }
+
+    .section-vault,
+    .section-cta {
+        padding: 120px 0;
+    }
+}
+
+/* Content Protection: No Copy, No Drag */
+.home-container {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Custom cursor applied via body in index.css */
+}
+
+.home-container img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: none;
+}
+
+/* Allow interaction with clickable images if needed (e.g. logo) */
+.home-container a img,
+.home-container button img {
+    pointer-events: auto;
+}
