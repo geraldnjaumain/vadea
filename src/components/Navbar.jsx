@@ -27,7 +27,18 @@ const Navbar = () => {
         alignItems: 'center'
       }}>
         {/* Logo */}
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <img
+            src="/logo.png"
+            alt="Vadea Logo"
+            style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              objectFit: 'cover',
+              border: '2px solid #0F172A'
+            }}
+          />
           <div style={{
             fontFamily: 'Clash Display, sans-serif',
             fontSize: '28px',
