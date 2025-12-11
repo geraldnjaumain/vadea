@@ -1,59 +1,30 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { TextPlugin } from 'gsap/TextPlugin';
-import { Sparkles } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 const SceneDeepFocus = () => {
     const containerRef = useRef(null);
-    const cursorRef = useRef(null);
     const textRef = useRef(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // 1. Pin the Section
-            ScrollTrigger.create({
-                trigger: containerRef.current,
-                start: "top top",
-                end: "+=1500",
-                pin: true,
-                anticipatePin: 1
-            });
-
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top top",
-                    end: "+=1500",
-                    scrub: 1,
+            // Simple fade in animation
+            gsap.fromTo(textRef.current,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top 60%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            });
-
-            // 2. Typewriter Effect
-            tl.to(cursorRef.current, {
-                opacity: 1,
-                duration: 0.1
-            })
-                .to(textRef.current, {
-                    text: {
-                        value: "Quantum Mechanics\n\n- Wave-particle duality\n- Heisenberg uncertainty principle\n- Quantum superposition",
-                        delimiter: ""
-                    },
-                    duration: 5,
-                    ease: "none"
-                });
-
-            // Blinking cursor
-            gsap.to(cursorRef.current, {
-                opacity: 0,
-                repeat: -1,
-                yoyo: true,
-                duration: 0.5,
-                ease: "steps(1)"
-            });
-
+            );
         }, containerRef);
 
         return () => ctx.revert();
@@ -63,98 +34,119 @@ const SceneDeepFocus = () => {
         <section
             ref={containerRef}
             style={{
-                height: '100vh',
+                minHeight: '100vh',
                 width: '100%',
                 background: 'var(--color-obsidian)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                padding: '120px 24px',
                 position: 'relative',
                 overflow: 'hidden'
             }}
         >
-            {/* Background Glow */}
+            {/* Subtle background accent */}
             <div style={{
                 position: 'absolute',
-                top: '20%',
-                left: '20%',
-                width: '400px',
-                height: '400px',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '600px',
+                height: '600px',
                 background: 'var(--color-electric-lime)',
                 borderRadius: '50%',
-                filter: 'blur(150px)',
-                opacity: 0.15,
+                filter: 'blur(200px)',
+                opacity: 0.08,
                 pointerEvents: 'none'
             }}></div>
 
-            <div style={{
-                position: 'relative',
-                zIndex: 10,
-                maxWidth: '600px',
+            <div ref={textRef} style={{
+                maxWidth: '900px',
                 width: '100%',
-                margin: '0 16px'
+                textAlign: 'center',
+                position: 'relative',
+                zIndex: 10
             }}>
-                {/* Card */}
+                {/* Main Heading */}
+                <h2 style={{
+                    fontSize: 'clamp(2.5rem, 7vw, 5rem)',
+                    fontWeight: 800,
+                    fontFamily: 'var(--font-heading)',
+                    color: 'white',
+                    lineHeight: 1.1,
+                    marginBottom: '24px',
+                    letterSpacing: '-0.03em'
+                }}>
+                    Your AI
+                    <br />
+                    <span style={{ color: 'var(--color-electric-lime)' }}>Study Buddy</span>
+                </h2>
+
+                {/* Subtext */}
+                <p style={{
+                    fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+                    color: '#94A3B8',
+                    maxWidth: '600px',
+                    margin: '0 auto 48px',
+                    lineHeight: 1.6
+                }}>
+                    Ask questions about your notes. Get instant explanations.
+                    <br />
+                    Learn faster with AI that understands your materials.
+                </p>
+
+                {/* Chat Preview */}
                 <div style={{
                     background: 'rgba(255,255,255,0.03)',
-                    backdropFilter: 'blur(20px)',
                     border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: '20px',
-                    padding: '48px',
-                    minHeight: '280px'
+                    borderRadius: '16px',
+                    padding: '32px',
+                    maxWidth: '500px',
+                    margin: '0 auto',
+                    textAlign: 'left'
                 }}>
-                    {/* Header */}
+                    {/* User Message */}
                     <div style={{
                         display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        marginBottom: '32px'
+                        justifyContent: 'flex-end',
+                        marginBottom: '20px'
                     }}>
-                        <Sparkles size={18} color="var(--color-electric-lime)" />
-                        <span style={{
-                            color: 'var(--color-electric-lime)',
-                            fontSize: '0.75rem',
-                            fontWeight: 700,
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.1em'
+                        <div style={{
+                            background: 'var(--color-electric-lime)',
+                            color: 'var(--color-obsidian)',
+                            padding: '12px 18px',
+                            borderRadius: '16px 16px 4px 16px',
+                            fontSize: '0.9375rem',
+                            fontWeight: 500,
+                            maxWidth: '80%'
                         }}>
-                            AI Study Buddy
-                        </span>
+                            Explain wave-particle duality
+                        </div>
                     </div>
 
-                    {/* Typewriter Content */}
+                    {/* AI Response */}
                     <div style={{
-                        fontFamily: 'monospace',
-                        fontSize: 'clamp(1rem, 3vw, 1.375rem)',
-                        color: 'white',
-                        lineHeight: 1.8,
-                        whiteSpace: 'pre-line',
-                        minHeight: '150px'
+                        display: 'flex',
+                        justifyContent: 'flex-start'
                     }}>
-                        <span ref={textRef}></span>
-                        <span
-                            ref={cursorRef}
-                            style={{
-                                display: 'inline-block',
-                                width: '12px',
-                                height: '24px',
-                                background: 'var(--color-electric-lime)',
-                                marginLeft: '4px',
-                                verticalAlign: 'middle'
-                            }}
-                        ></span>
+                        <div style={{
+                            background: 'rgba(255,255,255,0.06)',
+                            color: 'white',
+                            padding: '16px 18px',
+                            borderRadius: '16px 16px 16px 4px',
+                            fontSize: '0.9375rem',
+                            lineHeight: 1.6,
+                            maxWidth: '85%'
+                        }}>
+                            <p style={{ margin: '0 0 12px 0' }}>
+                                Based on your physics notes, wave-particle duality means that particles like electrons exhibit both wave and particle properties.
+                            </p>
+                            <p style={{ margin: 0, color: '#94A3B8', fontSize: '0.8125rem' }}>
+                                📖 From: Physics 101 - Lecture 4
+                            </p>
+                        </div>
                     </div>
                 </div>
-
-                {/* Footer Text */}
-                <p style={{
-                    textAlign: 'center',
-                    color: '#64748B',
-                    marginTop: '32px',
-                    fontSize: '1rem'
-                }}>
-                    Your AI-powered <span style={{ color: 'white' }}>study companion.</span>
-                </p>
             </div>
         </section>
     );
