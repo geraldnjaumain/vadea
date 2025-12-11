@@ -94,6 +94,8 @@ const ProtectedRoute = ({ children }) => {
 };
 
 import HomeV3 from './components/home/HomeV3';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 const App = () => {
   return (
@@ -104,6 +106,8 @@ const App = () => {
             <Route path="/" element={<HomeV3 />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
 
             {/* Protected App Routes */}
             <Route path="/app" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
