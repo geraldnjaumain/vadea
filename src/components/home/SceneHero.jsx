@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronDown } from 'lucide-react';
@@ -165,7 +166,7 @@ const SceneHero = () => {
                     }}>
                         Get Started Free
                     </button>
-                    <button style={{
+                    <Link to="/login" style={{
                         padding: '16px 32px',
                         background: 'white',
                         color: 'var(--color-obsidian)',
@@ -174,10 +175,11 @@ const SceneHero = () => {
                         fontSize: '16px',
                         border: '1px solid #E2E8F0',
                         cursor: 'pointer',
-                        transition: 'all 0.2s'
+                        transition: 'all 0.2s',
+                        textDecoration: 'none'
                     }}>
-                        Watch Demo
-                    </button>
+                        Log In
+                    </Link>
                 </div>
             </div>
 
