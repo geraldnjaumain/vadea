@@ -68,6 +68,7 @@ const SceneDeepFocus = () => {
                 zIndex: 10
             }}>
                 {/* Main Heading */}
+                {/* Main Heading */}
                 <h2 style={{
                     fontSize: 'clamp(2.5rem, 7vw, 5rem)',
                     fontWeight: 800,
@@ -77,9 +78,9 @@ const SceneDeepFocus = () => {
                     marginBottom: '24px',
                     letterSpacing: '-0.03em'
                 }}>
-                    Your AI
+                    Never Study
                     <br />
-                    <span style={{ color: 'var(--color-electric-lime)' }}>Study Buddy</span>
+                    <span style={{ color: 'var(--color-electric-lime)' }}>Alone Again</span>
                 </h2>
 
                 {/* Subtext */}
@@ -90,37 +91,39 @@ const SceneDeepFocus = () => {
                     margin: '0 auto 48px',
                     lineHeight: 1.6
                 }}>
-                    Ask questions about your notes. Get instant explanations.
+                    It’s not just "AI"—it’s a study partner that knows your notes by heart.
                     <br />
-                    Learn faster with AI that understands your materials.
+                    Stuck at 2 AM? Get a friendly explanation, not a robot answer.
                 </p>
 
                 {/* Chat Preview */}
                 <div style={{
                     background: 'rgba(255,255,255,0.03)',
                     border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: '16px',
-                    padding: '32px',
-                    maxWidth: '500px',
+                    borderRadius: '24px',
+                    padding: '40px',
+                    maxWidth: '540px',
                     margin: '0 auto',
-                    textAlign: 'left'
+                    textAlign: 'left',
+                    boxShadow: '0 20px 40px -12px rgba(0,0,0,0.5)'
                 }}>
                     {/* User Message */}
                     <div style={{
                         display: 'flex',
                         justifyContent: 'flex-end',
-                        marginBottom: '20px'
+                        marginBottom: '24px'
                     }}>
                         <div style={{
                             background: 'var(--color-electric-lime)',
                             color: 'var(--color-obsidian)',
-                            padding: '12px 18px',
-                            borderRadius: '16px 16px 4px 16px',
-                            fontSize: '0.9375rem',
-                            fontWeight: 500,
-                            maxWidth: '80%'
+                            padding: '16px 24px',
+                            borderRadius: '20px 20px 4px 20px',
+                            fontSize: '1rem',
+                            fontWeight: 600,
+                            maxWidth: '85%',
+                            boxShadow: '0 4px 12px rgba(212, 255, 0, 0.2)'
                         }}>
-                            Explain wave-particle duality
+                            I still don't get this... can you explain it like I'm 5? 😩
                         </div>
                     </div>
 
@@ -130,20 +133,36 @@ const SceneDeepFocus = () => {
                         justifyContent: 'flex-start'
                     }}>
                         <div style={{
-                            background: 'rgba(255,255,255,0.06)',
+                            background: 'rgba(255,255,255,0.08)',
                             color: 'white',
-                            padding: '16px 18px',
-                            borderRadius: '16px 16px 16px 4px',
-                            fontSize: '0.9375rem',
+                            padding: '20px 24px',
+                            borderRadius: '20px 20px 20px 4px',
+                            fontSize: '1rem',
                             lineHeight: 1.6,
-                            maxWidth: '85%'
+                            maxWidth: '90%',
+                            backdropFilter: 'blur(10px)'
                         }}>
-                            <p style={{ margin: '0 0 12px 0' }}>
-                                Based on your physics notes, wave-particle duality means that particles like electrons exhibit both wave and particle properties.
+                            <p style={{ margin: '0 0 16px 0' }}>
+                                Don't sweat it! Think of it this way:
                             </p>
-                            <p style={{ margin: 0, color: '#94A3B8', fontSize: '0.8125rem' }}>
-                                📖 From: Physics 101 - Lecture 4
+                            <p style={{ margin: '0 0 16px 0' }}>
+                                Imagine the electron is like a shy dancer. When nobody is watching (measuring), it dances all over the floor at once (wave). But the moment you look at it, it freezes in one spot (particle).
                             </p>
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                marginTop: '12px',
+                                padding: '8px 12px',
+                                background: 'rgba(255,255,255,0.05)',
+                                borderRadius: '12px',
+                                width: 'fit-content'
+                            }}>
+                                <span style={{ fontSize: '1.2rem' }}>💡</span>
+                                <span style={{ color: '#94A3B8', fontSize: '0.875rem', fontWeight: 500 }}>
+                                    From: "Lecture 4: Quantum Weirdness"
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
