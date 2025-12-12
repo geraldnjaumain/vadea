@@ -101,7 +101,7 @@ const FilePreviewModal = ({ isOpen, onClose, file }) => {
             case 'pdf':
                 return <iframe src={signedUrl} title={file.title} className="preview-iframe" />;
 
-            case 'text':
+            case 'text': {
                 const ext = file.title.split('.').pop().toLowerCase();
                 if (ext === 'md') {
                     return (
@@ -121,6 +121,7 @@ const FilePreviewModal = ({ isOpen, onClose, file }) => {
                         </SyntaxHighlighter>
                     </div>
                 );
+            }
 
             default:
                 return (
